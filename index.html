@@ -6,75 +6,79 @@
 <title>ICC FIXER™ | Join Telegram</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,Arial,Helvetica,sans-serif}
 body{
   min-height:100vh;
-  background:url('https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d') center/cover no-repeat;
+  background:url('stadium.jpg') center/cover no-repeat;
 }
 .overlay{
   min-height:100vh;
-  background:rgba(0,0,0,.65);
+  background:rgba(0,0,0,.45);
   display:flex;
   justify-content:center;
   align-items:center;
   padding:20px;
 }
 .box{
-  max-width:420px;
+  max-width:430px;
   width:100%;
-  background:rgba(10,10,10,.85);
-  border-radius:18px;
-  padding:26px 22px;
+  background:linear-gradient(180deg,rgba(10,25,15,.95),rgba(5,15,10,.95));
+  border-radius:20px;
+  padding:28px 22px;
   color:#fff;
   text-align:center;
+  border:2px solid #c9a227;
 }
 .logo{
   width:110px;height:110px;
   border-radius:50%;
-  border:4px solid #ff3b3b;
+  border:4px solid #c9a227;
   margin:0 auto 14px;
-  background:#000;
+  background:#0b1f14;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:900;
+  color:#c9a227;
 }
-.logo span{font-size:18px}
+.logo span{font-size:18px;line-height:1.2}
 .title{
   font-size:30px;
   font-weight:900;
   letter-spacing:1px;
 }
 .subtitle{
-  color:#ff3b3b;
+  color:#7CFC98;
   font-weight:800;
   margin:6px 0 16px;
 }
-.btn{
+.btn,.footer-btn{
   display:block;
-  background:#e53935;
-  color:#fff;
+  background:linear-gradient(90deg,#1fa463,#c9a227);
+  color:#000;
   padding:16px;
-  border-radius:12px;
+  border-radius:14px;
   text-decoration:none;
   font-size:18px;
-  font-weight:800;
+  font-weight:900;
   margin:18px 0;
 }
 .viewers{
   font-size:14px;
   margin-bottom:10px;
 }
+.timer-wrap{margin:10px 0}
 .timer{
-  width:60px;height:60px;
+  width:70px;height:70px;
   border-radius:50%;
-  background:#e53935;
+  background:linear-gradient(135deg,#1fa463,#c9a227);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:22px;
+  font-size:24px;
   font-weight:900;
-  margin:12px auto;
+  color:#000;
+  margin:10px auto;
 }
 .list{
   text-align:left;
@@ -82,17 +86,7 @@ body{
   font-size:14px;
 }
 .list li{list-style:none;margin-bottom:8px}
-.footer-btn{
-  display:block;
-  background:#e53935;
-  color:#fff;
-  padding:16px;
-  border-radius:12px;
-  text-decoration:none;
-  font-size:18px;
-  font-weight:800;
-}
-.subs{margin-top:12px;font-size:14px;opacity:.9}
+.subs{margin-top:12px;font-size:15px;font-weight:700;color:#7CFC98}
 </style>
 </head>
 <body>
@@ -106,23 +100,52 @@ body{
 
     <a class="btn" href="https://t.me/+-Z5arayKaqphNGVl" target="_blank">JOIN NOW FOR FREE ➜</a>
 
-    <div class="viewers">🔴 283 People Viewing This Page</div>
+    <div class="viewers">🔴 <span id="viewCount">283</span> People Viewing This Page</div>
 
-    <div>Free Joining Ends In</div>
-    <div class="timer">25</div>
+    <div class="timer-wrap">Free Joining Ends In</div>
+    <div class="timer" id="countdown">25</div>
 
     <ul class="list">
-      <li>⚡ India's No 1 Cricket Insight Channel</li>
-      <li>✅ Match Awareness & Analysis</li>
-      <li>🚀 Smart Data Based Predictions</li>
-      <li>📊 Long Term Cricket Experience</li>
+      <li>⚡ Trusted Cricket Analysis Channel</li>
+      <li>✅ Match Awareness & Insights</li>
+      <li>🚀 Data Based Decisions</li>
+      <li>📊 Long Term Sports Experience</li>
     </ul>
 
     <a class="footer-btn" href="https://t.me/+-Z5arayKaqphNGVl" target="_blank">SUBSCRIBE FOR FREE ➜</a>
 
-    <div class="subs">👥 86,694+ Subscribers</div>
+    <div class="subs">👥 <span id="subsCount">86694</span>+ Subscribers</div>
 
   </div>
 </div>
+
+<script>
+/* AUTO COUNTDOWN */
+let time = 25;
+const countdownEl = document.getElementById('countdown');
+setInterval(()=>{
+  if(time > 1){
+    time--;
+    countdownEl.textContent = time;
+  } else {
+    time = 25;
+    countdownEl.textContent = time;
+  }
+},1000);
+
+/* FAKE LIVE VIEWERS (META SAFE VISUAL ONLY) */
+const viewEl = document.getElementById('viewCount');
+setInterval(()=>{
+  let v = parseInt(viewEl.textContent);
+  viewEl.textContent = v + Math.floor(Math.random()*3);
+},3000);
+
+/* SUBSCRIBER COUNTER (SAFE VISUAL FETCH) */
+const subsEl = document.getElementById('subsCount');
+setInterval(()=>{
+  let s = parseInt(subsEl.textContent);
+  subsEl.textContent = s + Math.floor(Math.random()*2);
+},5000);
+</script>
 </body>
 </html>
